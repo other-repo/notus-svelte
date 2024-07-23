@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: notus-svelte-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - www.svc.plus
+    secretName: notus-svelte-tls
+  rules:
+  - host: www.svc.plus
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: notus-svelte-service
+            port:
+              number: 80

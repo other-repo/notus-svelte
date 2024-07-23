@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notus-svelte-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notus-svelte
+  template:
+    metadata:
+      labels:
+        app: notus-svelte
+    spec:
+      containers:
+      - name: notus-svelte
+        image: images.svc.plus/public/notus-svelte:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5173
+
