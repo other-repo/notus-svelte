@@ -11,7 +11,7 @@ on:
     branches:
       - main
 env:
-  IMAGE_REPO: "images.plus.svc"
+  IMAGE_REPO: "images.svc.plus"
 
 jobs:
   notus-svelte:
@@ -19,7 +19,7 @@ jobs:
     uses: svc-design/actions/.github/workflows/build-images.yaml@main
     with:
       method: 'docker/node'
-      registry_addr: "images.plus.svc"
+      registry_addr: "images.svc.plus"
       dockerfile_path: './'
       image_name: 'public/notus-svelte'
       image_tag: 'latest'
